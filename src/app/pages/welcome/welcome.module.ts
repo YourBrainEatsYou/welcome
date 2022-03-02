@@ -1,6 +1,7 @@
 import { HeaderModule } from "@/components/header/header.module";
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { FormsModule } from "@angular/forms";
 import { ZXingScannerModule } from "@zxing/ngx-scanner";
 import { BadgeComponent } from './badge/badge.component';
 import { FinishComponent } from './finish/finish.component';
@@ -25,7 +26,8 @@ import { WelcomeComponent } from './welcome.component';
     CommonModule,
     WelcomeRoutingModule,
     HeaderModule,
-    ZXingScannerModule
+    ZXingScannerModule,
+    FormsModule
   ]
 })
 export class WelcomeModule {

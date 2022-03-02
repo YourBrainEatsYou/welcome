@@ -9,6 +9,8 @@ export class BadgeComponent implements OnInit {
 
   @Output() badgeSerialNumber: EventEmitter<string> = new EventEmitter<string>();
 
+  serialNumber = '';
+
   constructor() {
   }
 
@@ -17,10 +19,11 @@ export class BadgeComponent implements OnInit {
       const ndef = new NDEFReader();
 
       ndef.scan().then(() => {
-        
+
         ndef.onreading = (event: NDEFReadingEvent) => {
           alert(event.serialNumber);
-          this.badgeSerialNumber.emit(event.serialNumber);
+          this.serialNumber = event.serialNumber;
+          // this.badgeSerialNumber.emit(event.serialNumber);
         };
       }).catch(() => {
       });
