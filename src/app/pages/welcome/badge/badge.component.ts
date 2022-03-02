@@ -21,7 +21,7 @@ export class BadgeComponent implements OnInit {
         };
 
         ndef.onreading = (event: NDEFReadingEvent) => {
-          alert(event);
+          alert(event.serialNumber + ' ' + event.message);
           console.log(event);
           console.log('readed');
         };
