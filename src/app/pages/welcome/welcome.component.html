@@ -4,5 +4,6 @@
   <app-ticket (code)="onCodeEmit($event)" *ngIf="currentStep === 'ticket'"></app-ticket>
   <app-identification (identification)="onIdentificationEmit()" *ngIf="currentStep === 'identification'"
                       [ticketCode]="ticketCode"></app-identification>
-  <app-badge *ngIf="currentStep === 'badge'"></app-badge>
+  <app-badge (badgeSerialNumber)="onBadgeSerialNumberEmit($event)" *ngIf="currentStep === 'badge'"></app-badge>
+  <app-finish (finish)="onFinishEmit()" *ngIf="currentStep === 'finish'"></app-finish>
 </main>

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-badge',
@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./badge.component.scss']
 })
 export class BadgeComponent implements OnInit {
+
+  @Output() badgeSerialNumber: EventEmitter<string> = new EventEmitter<string>();
 
   constructor() {
   }
@@ -15,18 +17,10 @@ export class BadgeComponent implements OnInit {
       const ndef = new NDEFReader();
 
       ndef.scan().then(() => {
-        ndef.onreadingerror = () => {
-          console.log('error');
-          alert('ERROR');
-        };
-
         ndef.onreading = (event: NDEFReadingEvent) => {
-          alert(event.serialNumber + ' ' + event.message);
-          console.log(event);
-          console.log('readed');
+          this.badgeSerialNumber.emit(event.serialNumber);
         };
-      }).catch((error) => {
-        console.log(error);
+      }).catch(() => {
       });
     } else {
       console.log('NDEF not suported');

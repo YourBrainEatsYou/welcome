@@ -1,27 +1,26 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-welcome',
   templateUrl: './welcome.component.html',
   styleUrls: ['./welcome.component.scss']
 })
-export class WelcomeComponent implements OnInit {
+export class WelcomeComponent {
 
   // data
   ticketCode: string = '';
   identification: boolean = false;
-  badgeNumber: string = '';
+  badgeSerialNumber: string = '';
 
   private steps = [
     'welcome',
     'ticket',
     'identification',
-    'badge'
+    'badge',
+    'finish'
   ];
   currentStep = this.steps[0];
 
-  ngOnInit(): void {
-  }
 
   next() {
     const currentStepIndex = this.steps.indexOf(this.currentStep);
@@ -29,6 +28,9 @@ export class WelcomeComponent implements OnInit {
   }
 
   reset() {
+    this.ticketCode = '';
+    this.identification = false;
+    this.badgeSerialNumber = '';
     this.currentStep = this.steps[0];
   }
 
@@ -44,6 +46,16 @@ export class WelcomeComponent implements OnInit {
   onIdentificationEmit() {
     this.identification = true;
     this.next();
+  }
+
+  onBadgeSerialNumberEmit(badgeSerialNumber: string) {
+    this.badgeSerialNumber = badgeSerialNumber;
+    this.next();
+  }
+
+  onFinishEmit() {
+    // do the API stuff
+    this.reset();
   }
 
 
