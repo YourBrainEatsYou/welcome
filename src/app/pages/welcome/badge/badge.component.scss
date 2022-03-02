@@ -1,0 +1,55 @@
+@use "abstracts" as *;
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.1);
+  }
+}
+
+:host {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+}
+
+.badge {
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: center;
+  width: 50%;
+  max-width: 200px;
+  transform: scale(1);
+  animation: pulse 1s ease-in-out infinite alternate-reverse;
+  border-radius: 2.4rem;
+  aspect-ratio: 35 / 26;
+  @include shadow;
+
+
+  &:before,
+  &:after {
+    position: absolute;
+    top: 12%;
+    left: 8%;
+    width: 0.6rem;
+    height: 74%;
+    content: '';
+    border-radius: 0.6rem;
+    background-color: $color-gray;
+  }
+
+  &:after {
+    right: 8%;
+    left: auto;
+  }
+
+  img {
+    width: 55%;
+  }
+}

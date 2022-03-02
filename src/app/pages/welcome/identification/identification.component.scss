@@ -1,0 +1,48 @@
+@use "abstracts" as *;
+
+:host {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+
+  padding: 1.2rem;
+}
+
+.user {
+  display: flex;
+  align-self: start;
+  flex-direction: column;
+  width: 100%;
+}
+
+.loader {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+  justify-self: center;
+}
+
+.check {
+  display: flex;
+  margin-top: 2.4rem;
+  padding: 2.4rem;
+  cursor: pointer;
+  border: 1px solid $color-gray;
+  border-radius: 1.2rem;
+  gap: 2.4rem;
+
+  &:hover {
+    background-color: $color-gray;
+  }
+}
+
+.checkbox {
+  display: block;
+  width: 2.4rem;
+  border: 3px solid $color-black;
+  aspect-ratio: 1 / 1;
+}

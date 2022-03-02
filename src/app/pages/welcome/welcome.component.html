@@ -1,0 +1,8 @@
+<app-header></app-header>
+<main>
+  <app-start (started)="onWelcomeEmit()" *ngIf="currentStep === 'welcome'"></app-start>
+  <app-ticket (code)="onCodeEmit($event)" *ngIf="currentStep === 'ticket'"></app-ticket>
+  <app-identification (identification)="onIdentificationEmit()" *ngIf="currentStep === 'identification'"
+                      [ticketCode]="ticketCode"></app-identification>
+  <app-badge *ngIf="currentStep === 'badge'"></app-badge>
+</main>
