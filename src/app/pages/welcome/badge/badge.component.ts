@@ -15,21 +15,41 @@ export class BadgeComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    if ("NDEFReader" in window) {
-      const ndef = new NDEFReader();
+    const scan = async () => {
+      if ("NDEFReader" in window) {
+        try {
+          const ndef = new NDEFReader();
+          await ndef.scan();
 
-      ndef.scan().then(() => {
+          ndef.addEventListener("readingerror", () => {
+            alert("Argh! Cannot read data from the NFC tag. Try another one?");
+          });
+          
+          // @ts-ignore
+          ndef.addEventListener("reading", ({serialNumber}) => {
+            this.serialNumber = serialNumber;
+            this.badgeSerialNumber.emit(serialNumber);
+          });
+        } catch (error) {
+          console.log("Argh! " + error);
+        }
+        /*
+                ndef.scan().then(() => {
 
-        ndef.onreading = (event: NDEFReadingEvent) => {
-          alert(event.serialNumber);
-          this.serialNumber = event.serialNumber;
-          this.badgeSerialNumber.emit(event.serialNumber);
-        };
-      }).catch(() => {
-      });
-    } else {
-      console.log('NDEF not suported');
-    }
+                  ndef.onreading = (event: NDEFReadingEvent) => {
+                    alert(event.serialNumber);
+                    this.serialNumber = event.serialNumber;
+                    // this.badgeSerialNumber.emit(event.serialNumber);
+                  };
+                }).catch(() => {
+                });
+
+         */
+      } else {
+        console.log('NDEF not suported');
+      }
+    };
+    scan();
   }
 
   badgeScanned() {
