@@ -14,7 +14,6 @@ export class IdentificationComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log(this.ticketCode);
   }
 
   onCheckedIdentification() {

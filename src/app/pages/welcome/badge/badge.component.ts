@@ -17,9 +17,11 @@ export class BadgeComponent implements OnInit {
       ndef.scan().then(() => {
         ndef.onreadingerror = () => {
           console.log('error');
+          alert('ERROR');
         };
 
         ndef.onreading = (event: NDEFReadingEvent) => {
+          alert(event);
           console.log(event);
           console.log('readed');
         };
