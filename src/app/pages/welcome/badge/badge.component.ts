@@ -32,4 +32,8 @@ export class BadgeComponent implements OnInit {
     }
   }
 
+  badgeScanned() {
+    this.badgeSerialNumber.emit(this.serialNumber);
+  }
+
 }
