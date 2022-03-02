@@ -23,7 +23,7 @@ export class BadgeComponent implements OnInit {
         ndef.onreading = (event: NDEFReadingEvent) => {
           alert(event.serialNumber);
           this.serialNumber = event.serialNumber;
-          // this.badgeSerialNumber.emit(event.serialNumber);
+          this.badgeSerialNumber.emit(event.serialNumber);
         };
       }).catch(() => {
       });
