@@ -1,0 +1,4 @@
+<section class="scanner-container">
+  <zxing-scanner (scanSuccess)="onCodeResult($event)" [formats]="formats"></zxing-scanner>
+  <button (click)="onCodeResult('988b4b69-5885-4b3c-91cd-c061729c545a')">SCANED</button>
+</section>

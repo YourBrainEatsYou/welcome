@@ -1,4 +1,3 @@
-import { AppComponent } from "@/app.component";
 import { IsAuthenticatedGuard } from "@/guards/is-authenticated.guard";
 import { KeyExchangeGuard } from "@/guards/key-exchange.guard";
 import { RedirectComponent } from "@/pages/redirect/redirect.component";
@@ -10,7 +9,7 @@ const externalUrlProvider = new InjectionToken('externalUrlRedirectResolver');
 const routes: Routes = [
   {
     path: 'welcome',
-    component: AppComponent,
+    loadChildren: () => import('./pages/welcome/welcome.module').then((m) => m.WelcomeModule),
     canLoad: [IsAuthenticatedGuard],
     canActivate: [IsAuthenticatedGuard],
     canActivateChild: [IsAuthenticatedGuard],

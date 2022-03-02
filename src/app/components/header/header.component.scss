@@ -1,0 +1,51 @@
+@use "abstracts" as *;
+@use "elements/button";
+
+:host {
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  padding: 1.2rem 2.4rem;
+  background-color: $color-white;
+  @include shadow;
+
+  @include for-tablet-portrait-up {
+    padding: 2.4rem (3 * 2.4rem);
+  }
+}
+
+
+.title {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  color: currentColor;
+
+  .icon {
+    padding-right: 6px;
+
+    span {
+      font-size: 26px;
+      @include for-tablet-landscape-up {
+        font-size: 36px;
+      }
+    }
+  }
+
+  .text {
+    font-size: 20px;
+    font-weight: $font-weight-bold;
+    text-transform: uppercase;
+
+    @include for-tablet-landscape-up {
+      font-size: 30px;
+      line-height: 4.8rem;
+    }
+  }
+}
