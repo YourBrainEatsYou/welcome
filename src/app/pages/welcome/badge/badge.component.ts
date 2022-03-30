@@ -33,4 +33,8 @@ export class BadgeComponent implements OnInit {
     };
     scan();
   }
+
+  serialNumber() {
+    this.badgeSerialNumber.emit('44:65:96:EE');
+  }
 }

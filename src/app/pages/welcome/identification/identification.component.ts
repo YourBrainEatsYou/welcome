@@ -1,3 +1,4 @@
+import { WelcomePayload } from "@/interfaces/payload/welcome-payload";
 import { Component, Input, EventEmitter, Output } from '@angular/core';
 
 @Component({
@@ -8,6 +9,7 @@ import { Component, Input, EventEmitter, Output } from '@angular/core';
 export class IdentificationComponent {
 
   @Input() ticketCode: string = '';
+  @Input() welcomeData: WelcomePayload | null = null;
   @Output() identification: EventEmitter<boolean> = new EventEmitter<boolean>();
 
   onCheckedIdentification() {

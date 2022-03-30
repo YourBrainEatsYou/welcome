@@ -6,6 +6,7 @@ import { ZXingScannerModule } from "@zxing/ngx-scanner";
 import { BadgeComponent } from './badge/badge.component';
 import { FinishComponent } from './finish/finish.component';
 import { IdentificationComponent } from './identification/identification.component';
+import { MerchComponent } from './merch/merch.component';
 import { StartComponent } from './start/start.component';
 import { TicketComponent } from './ticket/ticket.component';
 
@@ -20,7 +21,8 @@ import { WelcomeComponent } from './welcome.component';
     TicketComponent,
     IdentificationComponent,
     BadgeComponent,
-    FinishComponent
+    FinishComponent,
+    MerchComponent
   ],
   imports: [
     CommonModule,

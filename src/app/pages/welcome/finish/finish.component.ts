@@ -1,4 +1,4 @@
-import { Component, Output, EventEmitter } from '@angular/core';
+import { Component, Output, EventEmitter, Input } from '@angular/core';
 
 @Component({
   selector: 'app-finish',
@@ -7,6 +7,7 @@ import { Component, Output, EventEmitter } from '@angular/core';
 })
 export class FinishComponent {
 
+  @Input() loading: boolean = false;
   @Output() finish: EventEmitter<boolean> = new EventEmitter<boolean>();
 
   onClick() {

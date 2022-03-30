@@ -2,8 +2,10 @@
 <main>
   <app-start (started)="onWelcomeEmit()" *ngIf="currentStep === 'welcome'"></app-start>
   <app-ticket (code)="onCodeEmit($event)" *ngIf="currentStep === 'ticket'"></app-ticket>
-  <app-identification (identification)="onIdentificationEmit()" *ngIf="currentStep === 'identification'"
-                      [ticketCode]="ticketCode"></app-identification>
+  <app-identification (identification)="onIdentificationEmit()" *ngIf="currentStep === 'identification' && welcomeData"
+                      [ticketCode]="ticketCode"
+                      [welcomeData]="welcomeData"></app-identification>
   <app-badge (badgeSerialNumber)="onBadgeSerialNumberEmit($event)" *ngIf="currentStep === 'badge'"></app-badge>
+  <app-merch (merch)="onMerchEmit()" *ngIf="currentStep === 'merch'" [welcomeData]="welcomeData"></app-merch>
   <app-finish (finish)="onFinishEmit()" *ngIf="currentStep === 'finish'"></app-finish>
 </main>
