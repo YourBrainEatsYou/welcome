@@ -1,11 +1,12 @@
 <section class="merch">
   <h1>Merchandise</h1>
+
   <ul>
     <li *ngFor="let merch of welcomeData!.merch">{{merch}}</li>
   </ul>
 
   <div (click)="onCheckedMerch()" class="check">
     <span class="checkbox"></span>
-    <span class="value">Ich habe den merch abgegeben</span>
+    <span class="value">Ich habe den Merch abgegeben</span>
   </div>
 </section>

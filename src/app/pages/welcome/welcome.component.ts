@@ -14,9 +14,9 @@ export class WelcomeComponent {
   isLoading: boolean = false;
 
   // data
-  ticketCode: string = '';
+  ticketCode: string = '988b4b69-5885-4b3c-91cd-c061729c545a';
   identification: boolean = false;
-  badgeSerialNumber: string = '';
+  badgeSerialNumber: string = 'AABBCCDD';
   merch: boolean = false;
 
   welcomeData: WelcomePayload | null = null;
@@ -82,6 +82,10 @@ export class WelcomeComponent {
   onBadgeSerialNumberEmit(badgeSerialNumber: string) {
     this.badgeSerialNumber = badgeSerialNumber;
     this.next();
+
+    if (this.welcomeData!.merch.length === 0) {
+      this.onMerchEmit();
+    }
   }
 
   onMerchEmit() {
