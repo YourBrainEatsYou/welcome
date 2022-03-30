@@ -16,7 +16,7 @@ export class MerchComponent implements OnInit {
 
   ngOnInit() {
     if (this.welcomeData?.merch.length === 0) {
-      this.onCheckedMerch();
+      this.merch.emit(true);
     }
   }
 
