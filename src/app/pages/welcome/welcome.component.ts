@@ -105,8 +105,8 @@ export class WelcomeComponent {
       first(),
       finalize(() => this.isPosting = false),
       tap(() => this.reset()),
-      catchError((error) => {
-        alert(error);
+      catchError(() => {
+        alert('send to admin desk!');
         return of(EMPTY);
       })
     ).subscribe();
